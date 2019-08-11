@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://danic.tech">
+  <link rel="dns-prefetch" href="http://www.danic.tech">
   <title>新姿势！Redis中调用Lua脚本以实现原子性操作 | 嘎子与嘎子</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="背景：有一服务提供者Leader，有多个消息订阅者Workers。Leader是一个排队程序，维护了一个用户队列，当某个资源空闲下来并被分配至队列中的用户时，Leader会向订阅者推送消息（消息带有唯一标识ID），订阅者在接收到消息后会进行特殊处理并再次推往前端。 问题：前端只需要接收到一条由Worker推送的消息即可，但是如果Workers不做消息重复推送判断的话，会导致前端收到多条消息推送，从">
 <meta name="keywords" content="Redis,Lua">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新姿势！Redis中调用Lua脚本以实现原子性操作">
-<meta property="og:url" content="http://danic.tech/2019/06/07/redis-with-lua/index.html">
+<meta property="og:url" content="http://www.danic.tech/2019/06/07/redis-with-lua/index.html">
 <meta property="og:site_name" content="嘎子与嘎子">
 <meta property="og:description" content="背景：有一服务提供者Leader，有多个消息订阅者Workers。Leader是一个排队程序，维护了一个用户队列，当某个资源空闲下来并被分配至队列中的用户时，Leader会向订阅者推送消息（消息带有唯一标识ID），订阅者在接收到消息后会进行特殊处理并再次推往前端。 问题：前端只需要接收到一条由Worker推送的消息即可，但是如果Workers不做消息重复推送判断的话，会导致前端收到多条消息推送，从">
 <meta property="og:locale" content="default">
@@ -347,7 +347,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://danic.tech/2019/06/07/redis-with-lua/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.danic.tech/2019/06/07/redis-with-lua/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -513,10 +513,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Calendar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">内部类</a>
               </li>
              
@@ -525,11 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">Calendar</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统配置</a>
+                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,7 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统配置</a>
               </li>
              
               <li class="article-tag-list-item">
