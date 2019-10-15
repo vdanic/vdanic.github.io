@@ -17,7 +17,7 @@
 <meta property="og:description" content="背景：有一服务提供者Leader，有多个消息订阅者Workers。Leader是一个排队程序，维护了一个用户队列，当某个资源空闲下来并被分配至队列中的用户时，Leader会向订阅者推送消息（消息带有唯一标识ID），订阅者在接收到消息后会进行特殊处理并再次推往前端。 问题：前端只需要接收到一条由Worker推送的消息即可，但是如果Workers不做消息重复推送判断的话，会导致前端收到多条消息推送，从">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pic.danic.tech/call_and_pcall.png">
-<meta property="og:updated_time" content="2019-06-07T16:09:27.746Z">
+<meta property="og:updated_time" content="2019-10-15T10:00:00.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新姿势！Redis中调用Lua脚本以实现原子性操作">
 <meta name="twitter:description" content="背景：有一服务提供者Leader，有多个消息订阅者Workers。Leader是一个排队程序，维护了一个用户队列，当某个资源空闲下来并被分配至队列中的用户时，Leader会向订阅者推送消息（消息带有唯一标识ID），订阅者在接收到消息后会进行特殊处理并再次推往前端。 问题：前端只需要接收到一条由Worker推送的消息即可，但是如果Workers不做消息重复推送判断的话，会导致前端收到多条消息推送，从">
@@ -361,6 +361,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/10/15/Idempotent/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          幂等性(Idempotent)
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/07/27/Calendar-simple-tips/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Java 日期处理 - Calendar的简单使用</div>
@@ -505,11 +514,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">专业名词</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
+                <a href="javascript:void(0)" class="js-tag color4">Calendar</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +534,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Calendar</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.danic.tech/2017/05/24/quick-sort/</loc>
+    <loc>http://www.danic.tech/2019/10/15/Idempotent/</loc>
     
-    <lastmod>2019-07-23T05:23:57.542Z</lastmod>
+    <lastmod>2019-10-15T10:43:58.201Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.danic.tech/2019/06/07/redis-with-lua/</loc>
     
-    <lastmod>2019-06-07T16:09:27.746Z</lastmod>
+    <lastmod>2019-10-15T10:00:00.246Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.danic.tech/2017/05/24/quick-sort/</loc>
+    
+    <lastmod>2019-07-23T05:23:57.542Z</lastmod>
     
   </url>
   
@@ -58,14 +65,14 @@
   </url>
   
   <url>
-    <loc>http://www.danic.tech/2016/11/20/ubuntu-config/</loc>
+    <loc>http://www.danic.tech/2018/07/20/Arrays.asList-avoiding-mistakes/</loc>
     
     <lastmod>2018-07-27T09:38:48.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.danic.tech/2018/07/20/Arrays.asList-avoiding-mistakes/</loc>
+    <loc>http://www.danic.tech/2016/11/20/ubuntu-config/</loc>
     
     <lastmod>2018-07-27T09:38:48.000Z</lastmod>
     
