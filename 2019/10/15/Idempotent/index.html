@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.danic.tech">
   <title>幂等性(Idempotent) | 嘎子与嘎子</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="释义  123&amp;gt; Methods can also have the property of &amp;quot;idempotence&amp;quot; in that (aside from error or expiration issues) the side-effects of N &amp;gt; 0 identical requests is the same as for a single re">
+  <meta name="description" content="释义  Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &amp;gt; 0 identical requests is the same as for a single.          《rfc2616 -">
 <meta name="keywords" content="Http,专业名词">
 <meta property="og:type" content="article">
 <meta property="og:title" content="幂等性(Idempotent)">
 <meta property="og:url" content="http://www.danic.tech/2019/10/15/Idempotent/index.html">
 <meta property="og:site_name" content="嘎子与嘎子">
-<meta property="og:description" content="释义  123&amp;gt; Methods can also have the property of &amp;quot;idempotence&amp;quot; in that (aside from error or expiration issues) the side-effects of N &amp;gt; 0 identical requests is the same as for a single re">
+<meta property="og:description" content="释义  Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &amp;gt; 0 identical requests is the same as for a single.          《rfc2616 -">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-15T10:43:58.201Z">
+<meta property="og:updated_time" content="2019-10-15T10:48:16.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="幂等性(Idempotent)">
-<meta name="twitter:description" content="释义  123&amp;gt; Methods can also have the property of &amp;quot;idempotence&amp;quot; in that (aside from error or expiration issues) the side-effects of N &amp;gt; 0 identical requests is the same as for a single re">
+<meta name="twitter:description" content="释义  Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &amp;gt; 0 identical requests is the same as for a single.          《rfc2616 -">
   
     <link rel="alternative" href="/atom.xml" title="嘎子与嘎子" type="application/atom+xml">
   
@@ -161,25 +161,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4>释义</h4>
+        <h3>释义</h3>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; Methods can also have the property of &quot;idempotence&quot; in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single request.	</span><br><span class="line">&gt; 																					----rfc2616 - 9.1.2 Idempotent Methods</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single.          《rfc2616 - 9.1.2 Idempotent Methods》</p>
 </blockquote>
 <p>以上是摘自HTTP1.1标准中有关幂等性的介绍，大致内容为，<strong>除开网络错误以及请求超时的问题，请求同一个接口多次和单次，对资源所造成的影响是一致的</strong>。</p>
 <p>这里需要注意的是，幂等性关注的是对<strong>资源</strong>造成的影响，而非请求返回的结果。</p>
 <p>例如我们设计了一个<code>GET</code>接口<code>api/getSystemTime</code>，用于返回服务器的实时时间，虽然每次返回的结果都是不一样的，但是对服务器来说并没有发生资源变动，所以也是幂等的。</p>
 <p>一般来说，<code>GET</code>、<code>OPTIONS</code>、<code>HEAD</code>、<code>DELETE</code>这些请求方法都是幂等的，因为对服务器资源都是没有影响的，或是产生的影响是一致的。像<code>POST</code>、<code>PUT</code>、<code>PATCH</code>这些请求方法一般都是非幂等的。</p>
 <p>当然，有一些业务场景下，我们需要用到<code>POST</code>接口，同时也要保证幂等性，我们也可以自己实现接口的幂等性。</p>
-<h4>场景</h4>
+<a id="more"></a>
+<h3>场景</h3>
 <p>一般我们定义<strong>幂等性</strong>接口的使用场景是防止出现多次请求而导致的服务结果不一致的情况。例如付款场景，用户在前端可能因为点击多次，发起了多次请求，如果这个时候接口不做好幂等性的话，可能会出现多次付款的情况。</p>
-<h4>思路</h4>
-<h5>Token方式</h5>
+<h3>思路</h3>
+<h6>Token方式</h6>
 <p>实现幂等性可以从控制资源访问的次数下手。</p>
 <p>即使有多个请求过来需要请求支付，我们只需要允许其中一次请求进行完整的支付流程，其他请求均放弃即可。</p>
 <p>这样我们可以延伸出<code>token</code>的概念。</p>
 <p>假设我们的系统由订单系统和支付系统两部分组成，当我们提交订单后，由订单系统向支付系统申请一个<code>token</code>，支付系统在生成后返回这个<code>token</code>，同时将<code>token</code>存至Redis缓存中。这样当我们向支付系统发起支付请求时，带上这个<code>token</code>，支付系统需要先判断一下在缓存中是否存在这个<code>token</code>，如果存在则删除这个<code>token</code>，同时继续执行支付逻辑；如果缓存中不存在这个<code>token</code>，则返回业务错误。</p>
 <p>这里的<code>token</code>类似于一个信物，只有持有这个信物的人才允许被放行，放行后，这个信物也不再被信任，下次即使有携带相同信物来的人，也不给放行。</p>
-<h4>题外话</h4>
+<h3>题外话</h3>
 <p>写到最后，突然想起来为啥要研究这个<code>幂等性</code>来着。</p>
 <p>当时是在一个客户现场出现的生产问题，我们的应用程序，通过<code>nginx</code>往算法服务发送一个POST请求后，在经过大概10分钟，算法突然又被调用了一次，且收到的参数和第一次一摸一样。一开始以为是应用程序的问题，在公司的测试环境模拟了一遍，没有复现，后来怀疑可能是<code>nginx</code>做的鬼，问了现场，才知道现场使用的<code>nginx</code>版本是<code>1.8.1</code>（吐槽一下版本有点老）。然后在网上查阅资料，得知<strong>1.9.13以前版本的nginx默认会将POST等非幂等请求做超时重试处理</strong>。虽然我们的应用程序在往算法发起请求后，就不会再做什么后续处理，但坑的是算法会保持这个请求也不返回数据，导致<code>nginx</code>认为请求超时了，又发起了一波请求，血与泪哦。</p>
 <p>由于不能让现场升级nginx，所以我们只能让现场在<code>nginx</code>中加大了那个算法接口的超时时间。</p>
@@ -450,14 +451,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">专业名词</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
@@ -466,11 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内部类</a>
+                <a href="javascript:void(0)" class="js-tag color5">Http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
+                <a href="javascript:void(0)" class="js-tag color5">专业名词</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +471,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
+                <a href="javascript:void(0)" class="js-tag color4">内部类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,7 +483,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
