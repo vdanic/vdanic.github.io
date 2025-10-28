@@ -1,0 +1,70 @@
+baseURL = "https://danic.tech"
+DefaultContentLanguage = "zh" # Theme's display language, supports: en, fr, zh, zh-hant
+languageCode = "en-us"
+title = "编程学习记录"
+copyright = "Danic."
+theme = "diary"
+# googleAnalytics = "UA-123-45"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "perldoc"
+    tabWidth = 4
+
+[params]
+subtitle = "Code and code."
+enableGitalk = true
+favicon = "https://pic.danic.tech/avatar.png"
+
+# Twitter Card and Open Graph settings
+enableOpenGraph = false
+enableTwitterCards = false
+title = "My Blog" # will set 'og:site_name'
+description = "My HomePage Description"  # will set 'og:description'
+
+[params.gitalk]
+  owner = "vdanic"
+  admin= "vdanic" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
+  repo = "vdanic.github.io"
+  client_id = "1932999fbed067cf5641"
+  client_secret = "246e0e8f46a9cccea17c7455fc3757dd40b6323b"
+  labels= "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+  perPage= 15 # Pagination size, with maximum 100.
+  pagerDirection= "last" # Comment sorting direction, available values are 'last' and 'first'.
+  createIssueManually= false # If it is 'false', it is auto to make a Github issue when the administrators login.
+  distractionFreeMode= false # Enable hot key (cmd|ctrl + enter) submit comment.
+[taxonomies]
+   tag = "tags"
+   category = "categories"
+
+#[[menu.main]]
+#url = "/categories"
+#name = "Categories"
+#weight = 2
+[[menu.main]]
+url = "/tags"
+name = "Tags"
+weight = 3
+[[menu.main]]
+url = "/posts"
+name = "Archive"
+weight = 1
+[[menu.main]]
+url = "/leetcode"
+name = "Leetcode"
+weight = 2
+#[[menu.main]]
+#url = "/index.xml"
+#name = "RSS Feed"
+#weight = 4
+[[menu.main]]
+url = "/friend"
+name = "Friends"
+weight = 5
