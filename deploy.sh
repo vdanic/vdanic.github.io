@@ -12,7 +12,6 @@ rm -rf public/*
 # git init
 # git remote add origin git@101.33.220.102:/home/git/repos/blog-hugo.git
 # git add .
-
 # sudo git remote add origin git@github.com:vdanic/vdanic.github.io.git
 
 git add .
