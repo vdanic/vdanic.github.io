@@ -1,6 +1,7 @@
 ---
 title: MySql 选择性得插入数据
 date: 2017-03-03 20:50:16
+description: "MySql小技巧"
 tags: MySql
 featured_image: "https://pic.danic.tech/blog/bg/bg-07.jpg"
 ---

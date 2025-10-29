@@ -1,6 +1,7 @@
 ---
 title: 快速排序算法分析
 date: 2017-05-24 15:17:42
+description: "学习一下快速排序算法"
 tags: ["算法", "排序"]
 featured_image: "https://pic.danic.tech/blog/bg/bg-08.jpg"
 ---

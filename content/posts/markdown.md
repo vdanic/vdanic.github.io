@@ -2,6 +2,7 @@
 title: markdown语法
 tag: markdown
 date: 2016-10-12 19:32:05
+description: "学习一下Markdown的语法"
 featured_image: "https://pic.danic.tech/blog/bg/bg-06.jpg"
 ---
 

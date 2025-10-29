@@ -1,6 +1,7 @@
 ---
 title: Arrays.asList避坑
 date: 2018-07-20 15:07:41
+description: "看看Arrays.asList有没有啥坑"
 tag: ["Java"]
 featured_image: "https://pic.danic.tech/blog/bg/bg-01.jpg"
 ---

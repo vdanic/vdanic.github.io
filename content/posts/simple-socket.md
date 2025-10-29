@@ -1,7 +1,7 @@
 ---
 title: "Simple Socket"
 date: 2023-02-07T22:41:41+08:00
-description: ""
+description: "简单的Socket编程记录"
 featured_image: "https://pic.danic.tech/blog/bg/bg-#num#.jpg"
 tags: []
 draft: true

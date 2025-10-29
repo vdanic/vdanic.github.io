@@ -1,6 +1,7 @@
 ---
 title: Linux中软连接的应用
 date: 2016-12-20 19:32:05
+description: "Linux中软连接的使用学习"
 tag: linux 
 featured_image: "https://pic.danic.tech/blog/bg/bg-10.jpg"
 ---

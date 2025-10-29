@@ -1,6 +1,7 @@
 ---
 title: 幂等性(Idempotent)
 date: 2019-10-15 17:58:41
+description: "幂等性的概念学习"
 tag: ["网络", "Http"]
 featured_image: "https://pic.danic.tech/blog/bg/bg-04.jpg"
 ---

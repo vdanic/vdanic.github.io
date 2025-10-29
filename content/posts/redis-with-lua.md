@@ -1,5 +1,6 @@
 ---
 title: 新姿势！Redis中调用Lua脚本以实现原子性操作
+description: "学习使用Redis中的Lua脚本实现原子性操作"
 date: 2019-06-07 23:07:41
 tag: ["Redis", "Lua"]
 featured_image: "https://pic.danic.tech/blog/bg/bg-09.jpg"

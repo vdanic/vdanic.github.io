@@ -1,6 +1,7 @@
 ---
 title: Ubuntu软件支持和系统配置
 date: 2016-11-20 23:07:31
+description: "Ubuntu安装问题记录"
 tag: Linux
 featured_image: "https://pic.danic.tech/blog/bg/bg-11.jpg"
 ---

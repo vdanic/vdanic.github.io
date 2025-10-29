@@ -1,6 +1,7 @@
 ---
 title: 基于WebSocket的聊天功能(一)
 date: 2017-03-20 20:07:41
+description: "学习学习WebSocket知识"
 tag: websocket
 featured_image: "https://pic.danic.tech/blog/bg/bg-12.jpg"
 ---

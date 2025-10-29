@@ -2,6 +2,7 @@
 title: 对JAVA内部类的一些认知
 date: 2017-05-14 12:13:48
 tags: Java
+description: "学习一下JAVA内部类的知识"
 featured_image: "https://pic.danic.tech/blog/bg/bg-05.jpg"
 ---
 
